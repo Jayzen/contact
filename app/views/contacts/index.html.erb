@@ -1,0 +1,14 @@
+<div class="row">
+  <%= render 'shared/left_bar' %>
+  <div class="col-md-9">
+    <% if @contacts.blank? %>
+      <div class="alert alert-primary" role="alert">
+       no records
+      </div> 
+    <% end %>
+    <table class="table">
+      <%= render @contacts %>
+    </table>
+    <%= paginate @contacts %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<tr>
+  <td class="text-left"><%= contact.name %></td>
+  <td class="text-right">
+    <%= link_to "编辑", edit_contact_path(contact), class: "badge badge-primary" %>
+    <%= link_to "删除", contact, method: :delete, data: { confirm: "确定删除?"}, class: "badge badge-danger" %>
+  </td>
+</tr>

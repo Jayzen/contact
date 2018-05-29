@@ -1,0 +1,16 @@
+<div class="col-md-3">
+  <ul class="list-group">
+    <% active = (params[:group_id] == nil || params[:group_id].empty?) && !session[:selected_group_id] ? 'active' : '' %>
+    <%= link_to contacts_path, class: "list-group-item d-flex justify-content-between align-items-center #{active}" do %>
+      all contact
+      <span class="badge badge-primary badge-pill"><%= Contact.count %></span>
+    <% end %>
+    <% Group.all.each do |group| %>
+      <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
+      <%= link_to contacts_path(group_id: group.id), class: "list-group-item d-flex justify-content-between align-items-center #{active}" do %>
+        <%= group.name %>
+        <span class="badge badge-primary badge-pill"><%= group.contacts.count %></span>
+      <% end %>
+    <% end %>
+  </ul> 
+</div>
