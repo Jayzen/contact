@@ -17,9 +17,10 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <%= form_tag(contacts_path, class: "form-inline my-2 my-lg-0") do %>
-                    <%= text_field_tag :term, params[:term], class: "form-control mr-sm-2", placeholder: "Search..." %>
-                    <span type="submit"><i class="fa fa-search input-group-addon"></i></span>
+                  <%= form_tag(contacts_path, class: "form-inline my-2 my-lg-0", method: :get) do %>
+                    <%= hidden_field_tag :group_id, params[:group_id] %>
+                    <%= text_field_tag :term, params[:term], class: "form-control mr-sm-1", placeholder: "Search..." %>
+                    <button class="btn btn-link input-group-addon" type="submit"><i class="fa fa-search input-group-addon"></i></button>
                   <% end -%>
                 </li>
               </ul>
